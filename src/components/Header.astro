@@ -86,20 +86,23 @@ import iconImg from '../assets/icon.webp';
     </a>
   </nav>
 
-  <!-- Cabecera Completa Desktop (>= lg): 80px (h-20) -->
-  <div class="hidden lg:flex h-20 max-w-7xl mx-auto px-margin items-center justify-between gap-space-md">
-    <div class="flex items-center gap-space-sm shrink-0">
+  <!-- Cabecera Completa Desktop (>= lg): 80px (h-20) con Menú Central Centrado -->
+  <div class="hidden lg:flex h-20 max-w-[1440px] mx-auto px-margin items-center justify-between gap-space-md w-full">
+    <!-- Columna Izquierda: Logo (alineado a la izquierda) -->
+    <div class="flex items-center gap-space-sm shrink-0 flex-1 justify-start">
       <a class="flex items-center gap-3 no-underline" href="#inicio">
-        <Image
-          src={logoImg}
-          alt={SITE_CONFIG.clinicName}
-          width={56}
-          height={40}
-          format="webp"
-          quality={85}
-          loading="eager"
-          class="h-11 w-auto object-contain rounded"
-        />
+        <div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary-container overflow-hidden shrink-0 p-1">
+          <Image
+            src={iconImg}
+            alt={SITE_CONFIG.clinicName}
+            width={40}
+            height={40}
+            format="webp"
+            quality={85}
+            loading="eager"
+            class="w-8 h-8 object-contain"
+          />
+        </div>
         <div class="flex flex-col">
           <span class="font-brand font-bold text-[22px] text-primary-container leading-none">
             {SITE_CONFIG.shortName}
@@ -111,10 +114,11 @@ import iconImg from '../assets/icon.webp';
       </a>
     </div>
 
-    <nav class="flex items-center gap-space-lg whitespace-nowrap" aria-label="Navegación principal">
+    <!-- Columna Central: Menú de Navegación (perfectamente centrado) -->
+    <nav class="flex items-center justify-center gap-6 xl:gap-8 whitespace-nowrap shrink-0" aria-label="Navegación principal">
       <a
         aria-current="page"
-        class="transition-colors py-1 text-primary-container font-semibold border-b-2 border-primary-container pb-1"
+        class="transition-colors py-1 text-primary-container font-semibold border-b-2 border-primary-container pb-1 text-body-md"
         href="#inicio"
       >
         Inicio
@@ -136,7 +140,8 @@ import iconImg from '../assets/icon.webp';
       </a>
     </nav>
 
-    <div class="flex items-center gap-space-md shrink-0">
+    <!-- Columna Derecha: Teléfono y CTA (alineados a la derecha) -->
+    <div class="flex items-center gap-space-md shrink-0 flex-1 justify-end">
       <a
         class="flex items-center gap-space-xs font-title-md text-body-lg text-on-surface font-semibold whitespace-nowrap hover:text-primary-container transition-colors"
         href={SITE_CONFIG.links.phoneCall}
@@ -145,7 +150,7 @@ import iconImg from '../assets/icon.webp';
         <span>{SITE_CONFIG.phoneDisplay}</span>
       </a>
       <a
-        class="bg-primary-container hover:bg-primary text-on-primary font-title-md text-label-md px-[28px] py-[16px] rounded-lg tracking-wider uppercase whitespace-nowrap transition-all shadow-[0_2px_6px_rgba(15,82,186,0.12)] flex items-center justify-center"
+        class="bg-primary-container hover:bg-primary text-on-primary font-title-md text-label-md px-[24px] py-[14px] rounded-lg tracking-wider uppercase whitespace-nowrap transition-all shadow-[0_2px_6px_rgba(15,82,186,0.12)] flex items-center justify-center"
         href="#agendar"
       >
         AGENDAR MI CITA

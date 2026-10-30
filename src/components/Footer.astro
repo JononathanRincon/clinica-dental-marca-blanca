@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { SITE_CONFIG } from '../config/site';
-import logoImg from '../assets/logo.webp';
+import iconImg from '../assets/icon.webp';
 ---
 
 <footer class="w-full bg-[#111315] text-[#F5F3EE] pt-10 pb-24 lg:py-space-xl">
@@ -10,15 +10,17 @@ import logoImg from '../assets/logo.webp';
       <!-- Col 1: Brand & Motto -->
       <div class="space-y-space-sm">
         <div class="flex items-center gap-space-sm">
-          <Image
-            src={logoImg}
-            alt={SITE_CONFIG.clinicName}
-            width={48}
-            height={34}
-            format="webp"
-            quality={85}
-            class="h-9 w-auto object-contain rounded bg-white/10 p-0.5"
-          />
+          <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center overflow-hidden shrink-0 p-1">
+            <Image
+              src={iconImg}
+              alt={SITE_CONFIG.clinicName}
+              width={40}
+              height={40}
+              format="webp"
+              quality={85}
+              class="w-8 h-8 object-contain"
+            />
+          </div>
           <div class="flex flex-col">
             <span class="font-brand font-bold text-[22px] text-[#F5F3EE] leading-none">
               {SITE_CONFIG.shortName}
