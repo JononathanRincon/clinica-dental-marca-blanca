@@ -1,0 +1,26 @@
+# Build and runtime outputs
+dist/
+.astro/
+.vercel/
+node_modules/
+
+# Environment variables & secrets (CRÍTICO: nunca subir credenciales de Google a git)
+.env
+.env.production
+.env.local
+*.env
+*.pem
+
+# Generated PDFs and test files
+*.pdf
+test-font.mjs
+test-arial-rounded.png
+
+# OS and Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+
+.vercel

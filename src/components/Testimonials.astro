@@ -1,0 +1,96 @@
+---
+import { SITE_CONFIG } from '../config/site';
+
+const reviews = [
+  {
+    initials: 'CL',
+    name: 'Carlos Lozano',
+    treatment: 'Tratamiento de Estética Dental • Paciente Verificado',
+    quote:
+      'Excelente atención. El diagnóstico fue claro desde el primer minuto y me dieron el presupuesto exacto sin costos sorpresa. Mi tratamiento de diseño de sonrisa quedó impecable.',
+  },
+  {
+    initials: 'AM',
+    name: 'Andrea Morales',
+    treatment: 'Atención de Urgencia y Conducto • Paciente Verificado',
+    quote:
+      'Llegué por una urgencia con dolor intenso y me atendieron con mucha calidez y prontitud. Las instalaciones en la sede son modernas y muy limpias. Sin duda mi clínica de confianza.',
+  },
+  {
+    initials: 'JR',
+    name: 'Julián Restrepo',
+    treatment: 'Rehabilitación y Limpieza Familiar • Paciente Verificado',
+    quote:
+      'Atención para toda mi familia. A mis hijos les dio mucha confianza el equipo médico. La puntualidad en las citas agendadas en línea y por WhatsApp es fenomenal, nunca nos hacen esperar.',
+  },
+];
+---
+
+<section class="w-full bg-surface-container-lowest py-10 lg:py-space-xl border-y border-surface-variant/60" id="opiniones">
+  <div class="max-w-[1440px] mx-auto px-4 sm:px-margin-mobile lg:px-margin">
+    <!-- Google Reviews Official Header -->
+    <div class="text-center max-w-2xl mx-auto mb-6 lg:mb-space-xl">
+      <div class="inline-flex items-center gap-space-xs bg-surface-container-low px-space-md py-space-xs rounded-full mb-space-xs border border-[#E2DFD7]">
+        <span class="material-symbols-outlined text-primary-container text-body-md" style="font-variation-settings: 'FILL' 1;">
+          star
+        </span>
+        <span class="font-label-md text-label-md uppercase text-on-surface font-bold">RESEÑAS VERIFICADAS</span>
+      </div>
+      <h2 class="font-headline-lg-mobile lg:font-headline-xl text-headline-lg-mobile lg:text-headline-xl uppercase text-on-surface">
+        {SITE_CONFIG.rating} ★★★★★ BASADO EN {SITE_CONFIG.reviewsCount} OPINIONES REALES
+      </h2>
+      <p class="font-body-md lg:font-body-lg text-body-md lg:text-body-lg text-on-surface-variant mt-space-xs">
+        La tranquilidad y salud de nuestros pacientes es nuestro mayor testimonio de calidad médica.
+      </p>
+    </div>
+
+    <!-- Testimonial Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-space-lg mb-6 lg:mb-space-xl">
+      {
+        reviews.map((item) => (
+          <div class="bg-surface-container-low p-6 lg:p-8 rounded-2xl flex flex-col justify-between border border-[#E2DFD7]">
+            <div>
+              <div class="flex items-center justify-between mb-space-md">
+                <div class="flex text-amber-500">
+                  <span class="material-symbols-outlined text-body-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-body-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-body-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-body-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-body-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+                <span class="bg-surface-container-lowest text-primary-container px-space-xs py-0.5 rounded font-label-sm text-label-sm uppercase font-bold">
+                  Paciente Verificado
+                </span>
+              </div>
+              <p class="font-body-md lg:font-body-lg text-body-md lg:text-body-lg text-on-surface italic mb-space-md leading-relaxed">
+                "{item.quote}"
+              </p>
+            </div>
+            <div class="pt-space-md flex items-center gap-space-sm border-t border-surface-variant/60">
+              <div class="w-10 h-10 rounded-full bg-primary-fixed text-primary flex items-center justify-center font-bold text-label-md shrink-0">
+                {item.initials}
+              </div>
+              <div>
+                <h3 class="font-title-md text-body-lg text-on-surface font-semibold leading-tight">{item.name}</h3>
+                <p class="font-label-sm text-label-sm text-secondary">{item.treatment}</p>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Centered Button -->
+    <div class="text-center">
+      <a
+        class="inline-flex items-center justify-center gap-space-xs bg-surface-container-low hover:bg-primary-fixed text-primary-container font-title-md text-label-md px-8 py-3.5 rounded-lg shadow-sm border border-[#E2DFD7] tracking-wider uppercase transition-all"
+        href={SITE_CONFIG.links.googleMaps}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span class="material-symbols-outlined text-title-md">reviews</span>
+        <span>VER TODAS LAS {SITE_CONFIG.reviewsCount} RESEÑAS EN GOOGLE MAPS</span>
+      </a>
+    </div>
+  </div>
+</section>

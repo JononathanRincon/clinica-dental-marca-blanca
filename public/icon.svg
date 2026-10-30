@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 512 512" width="512" height="512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="toothGrad" x1="60" y1="40" x2="452" y2="472" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1E60D5"/>
+      <stop offset="50%" stop-color="#0F52BA"/>
+      <stop offset="100%" stop-color="#093C88"/>
+    </linearGradient>
+    <linearGradient id="innerGlow" x1="120" y1="80" x2="280" y2="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="125%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0F52BA" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Fondo circular suave transparente/clínico -->
+  <rect width="512" height="512" rx="128" fill="#F0F4FA"/>
+
+  <!-- Silueta estilizada de diente moderno con raíces anatómicas limpias -->
+  <g filter="url(#softShadow)">
+    <path d="M152 72C108 72 72 108 72 168C72 232 94 284 116 348C132 396 156 448 184 448C212 448 220 388 238 344C246 324 252 312 256 312C260 312 266 324 274 344C292 388 300 448 328 448C356 448 380 396 396 348C418 284 440 232 440 168C440 108 404 72 360 72C316 72 284 94 256 94C228 94 196 72 152 72Z" 
+          fill="url(#toothGrad)"/>
+    
+    <!-- Brillo curvo superior elegante (reflejo esmalte dental) -->
+    <path d="M152 96C120 96 96 122 96 168C96 216 114 260 132 316C138 300 150 240 176 188C204 132 236 118 256 118C236 102 200 96 152 96Z" 
+          fill="url(#innerGlow)"/>
+
+    <!-- Detalle de chispa / destello de higiene en la esquina superior derecha -->
+    <path d="M372 112L382 134L404 144L382 154L372 176L362 154L340 144L362 134L372 112Z" 
+          fill="#FFFFFF" opacity="0.9"/>
+  </g>
+</svg>

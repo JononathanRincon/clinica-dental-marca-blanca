@@ -1,0 +1,69 @@
+---
+import { SITE_CONFIG } from '../config/site';
+
+const mainCatalog = SITE_CONFIG.treatments.slice(0, 4);
+---
+
+<section class="w-full bg-surface-container-low py-10 lg:py-space-xl" id="servicios">
+  <div class="max-w-[1440px] mx-auto px-4 sm:px-margin-mobile lg:px-margin">
+    <div class="text-left lg:text-center max-w-2xl lg:mx-auto mb-6 lg:mb-space-xl">
+      <span class="font-label-sm text-label-sm uppercase tracking-widest text-primary-container font-bold">
+        ESPECIALIDADES ODONTOLÓGICAS
+      </span>
+      <h2 class="font-headline-lg-mobile lg:font-headline-xl text-headline-lg-mobile lg:text-headline-xl uppercase text-on-surface mt-space-xs">
+        NUESTROS SERVICIOS ODONTOLÓGICOS
+      </h2>
+      <p class="font-body-md lg:font-body-lg text-body-md lg:text-body-lg text-on-surface-variant mt-space-xs">
+        Precisión quirúrgica, estética moderna y prevención integral al cuidado de su sonrisa en {SITE_CONFIG.neighborhood}.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-space-lg">
+      {
+        mainCatalog.map((service) => (
+          <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between border border-[#E2DFD7]">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-primary-fixed text-primary-container flex items-center justify-center mb-space-md">
+                <span class="material-symbols-outlined text-headline-md">{service.icon}</span>
+              </div>
+              <h3 class="font-headline-sm text-headline-sm uppercase text-on-surface mb-space-xs">
+                {service.shortTitle}
+              </h3>
+              <p class="font-body-md text-body-md text-on-surface-variant mb-space-md leading-relaxed">
+                {service.description}
+              </p>
+            </div>
+            <div class="pt-space-md bg-surface-container-low/40 -mx-6 -mb-6 p-6 rounded-b-xl flex flex-col gap-space-xs border-t border-surface-variant/50">
+              <span class="font-label-sm text-label-sm uppercase text-secondary font-bold">
+                {service.priceTag}
+              </span>
+              <a
+                class="service-book-link font-title-md text-body-md text-primary-container font-semibold hover:text-primary flex items-center gap-space-xs transition-colors"
+                href="#agendar"
+                data-treatment={service.label}
+              >
+                <span>Agendar valoración</span>
+                <span class="material-symbols-outlined text-body-md">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.service-book-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      const treatmentLabel = link.getAttribute('data-treatment');
+      if (treatmentLabel) {
+        window.dispatchEvent(
+          new CustomEvent('clinic:select-treatment', {
+            detail: { treatmentLabel },
+          })
+        );
+      }
+    });
+  });
+</script>

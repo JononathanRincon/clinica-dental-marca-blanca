@@ -1,0 +1,129 @@
+---
+import { Image } from 'astro:assets';
+import { SITE_CONFIG } from '../config/site';
+import heroDoctorDesktop from '../assets/hero-doctor-desktop.webp';
+import heroDoctorMobile from '../assets/hero-doctor-mobile.webp';
+import iconImg from '../assets/icon.webp';
+---
+
+<section class="relative w-full bg-surface-container-low lg:min-h-[660px] overflow-hidden" id="inicio">
+  <div class="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 items-stretch lg:min-h-[660px]">
+    <!-- Left Column: 6 cols (50%) -->
+    <div class="lg:col-span-6 flex flex-col justify-center px-4 sm:px-margin-mobile lg:px-margin pt-6 pb-4 lg:py-space-xl z-10">
+      <!-- Social Proof Pill Badge -->
+      <div class="inline-flex items-center gap-1.5 bg-surface-container-lowest lg:bg-primary-fixed text-primary-container lg:text-primary px-3.5 py-1.5 rounded-full w-auto max-w-max shadow-sm mb-3 lg:mb-space-md">
+        <span class="material-symbols-outlined text-body-md text-tertiary-container lg:text-primary" style="font-variation-settings: 'FILL' 1;">
+          star
+        </span>
+        <span class="font-label-sm lg:font-label-md text-label-sm lg:text-label-md uppercase tracking-wider font-bold">
+          {SITE_CONFIG.rating} EN GOOGLE REVIEWS ({SITE_CONFIG.reviewsCount} OPINIONES VERIFICADAS) • {SITE_CONFIG.neighborhood.toUpperCase()}
+        </span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="font-headline-xl-mobile lg:font-headline-xl text-headline-xl-mobile lg:text-headline-xl uppercase text-on-surface tracking-tight mb-3 lg:mb-space-md">
+        TU SONRISA ES <span class="text-primary-container">NUESTRA PRIORIDAD</span>: SOLUCIONES PROFESIONALES DE{' '}
+        <span class="text-primary-container">CLÍNICA DENTAL</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="font-body-md lg:font-body-lg text-body-md lg:text-body-lg text-on-surface-variant max-w-xl mb-4 lg:mb-space-lg leading-relaxed">
+        Atención odontológica ágil, diagnósticos claros y respaldo garantizado en {SITE_CONFIG.neighborhood}. Cuidamos tu salud oral con tecnología moderna y trato humano sin demoras.
+      </p>
+
+      <!-- Fast Benefits List -->
+      <ul class="space-y-2.5 lg:space-y-space-sm mb-5 lg:mb-space-xl">
+        <li class="flex items-start lg:items-center gap-2.5 lg:gap-space-sm">
+          <span class="w-5 h-5 lg:w-6 lg:h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center shrink-0 mt-0.5 lg:mt-0">
+            <span class="material-symbols-outlined text-[14px] lg:text-body-md">check</span>
+          </span>
+          <span class="font-body-md text-body-md text-on-surface font-medium">
+            Valoración profesional y presupuesto previo sin compromiso.
+          </span>
+        </li>
+        <li class="flex items-start lg:items-center gap-2.5 lg:gap-space-sm">
+          <span class="w-5 h-5 lg:w-6 lg:h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center shrink-0 mt-0.5 lg:mt-0">
+            <span class="material-symbols-outlined text-[14px] lg:text-body-md">check</span>
+          </span>
+          <span class="font-body-md text-body-md text-on-surface font-medium">
+            Odontología estética, rehabilitación oral y cuidado integral.
+          </span>
+        </li>
+        <li class="flex items-start lg:items-center gap-2.5 lg:gap-space-sm">
+          <span class="w-5 h-5 lg:w-6 lg:h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center shrink-0 mt-0.5 lg:mt-0">
+            <span class="material-symbols-outlined text-[14px] lg:text-body-md">check</span>
+          </span>
+          <span class="font-body-md text-body-md text-on-surface font-medium">
+            Atención oportuna sin largas esperas en {SITE_CONFIG.address} ({SITE_CONFIG.neighborhood}).
+          </span>
+        </li>
+      </ul>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row sm:flex-nowrap items-stretch sm:items-center gap-2.5 sm:gap-space-md pt-1">
+        <a
+          class="bg-primary-container hover:bg-primary text-on-primary font-title-md text-body-md lg:text-label-md px-7 py-4 rounded-lg tracking-wider uppercase transition-all shadow-md flex items-center justify-center gap-space-xs whitespace-nowrap font-bold"
+          href="#agendar"
+        >
+          <span class="material-symbols-outlined text-title-md">calendar_month</span>
+          <span>AGENDAR MI CITA AHORA</span>
+        </a>
+        <a
+          class="bg-surface-container-lowest hover:bg-surface-container text-on-surface font-title-md text-body-md lg:text-label-md px-7 py-4 rounded-lg tracking-wider uppercase transition-all shadow-sm border border-[#E2DFD7] flex items-center justify-center gap-space-xs whitespace-nowrap font-semibold"
+          href={SITE_CONFIG.links.phoneCall}
+        >
+          <span class="material-symbols-outlined text-primary-container text-title-md">call</span>
+          <span>LLAMAR DIRECTO: {SITE_CONFIG.phoneDisplay}</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right Column: 6 cols (50%) Integrated Clinical Blend (LCP Eager + FetchPriority High) -->
+    <div class="lg:col-span-6 relative h-80 sm:h-[440px] lg:h-full w-full lg:min-h-[560px]">
+      <!-- Imagen LCP Desktop -->
+      <Image
+        src={heroDoctorDesktop}
+        alt="Especialista odontólogo en consulta clínica dental"
+        width={1000}
+        height={900}
+        format="webp"
+        quality={80}
+        loading="eager"
+        fetchpriority="high"
+        class="hidden sm:block w-full h-full object-cover object-center absolute inset-0"
+      />
+      <!-- Imagen LCP Mobile -->
+      <Image
+        src={heroDoctorMobile}
+        alt="Atención odontológica personalizada y de confianza"
+        width={800}
+        height={600}
+        format="webp"
+        quality={80}
+        loading="eager"
+        fetchpriority="high"
+        class="block sm:hidden w-full h-full object-cover object-center absolute inset-0"
+      />
+
+      <!-- Triple Soft Gradient Mask for 100% Seamless Integration -->
+      <div class="hidden lg:block absolute inset-0 pointer-events-none bg-gradient-to-r from-surface-container-low via-transparent to-transparent lg:w-1/3"></div>
+      <div class="absolute inset-x-0 bottom-0 h-20 lg:h-28 pointer-events-none bg-gradient-to-t from-surface-container-low via-surface-container-low/70 to-transparent"></div>
+      <div class="absolute inset-x-0 top-0 h-14 lg:h-20 pointer-events-none bg-gradient-to-b from-surface-container-low via-surface-container-low/60 to-transparent"></div>
+
+      <!-- Floating Badge Card -->
+      <div class="absolute bottom-4 left-4 right-4 sm:left-auto sm:right-6 lg:bottom-10 lg:right-10 bg-surface-container-lowest/95 backdrop-blur-sm text-on-surface p-3 lg:p-space-md rounded-xl shadow-xl z-20 flex items-center justify-center sm:justify-start gap-space-sm sm:max-w-sm border border-[#E2DFD7]">
+        <div class="w-9 h-9 lg:w-10 lg:h-10 rounded-full bg-surface-container-high text-primary-container flex items-center justify-center shrink-0 overflow-hidden p-1">
+          <Image src={iconImg} alt="Icono Dental" width={40} height={40} format="webp" quality={85} class="w-7 h-7 object-contain" />
+        </div>
+        <div>
+          <p class="font-headline-sm text-label-md lg:text-headline-sm uppercase text-on-surface leading-tight font-bold">
+            {SITE_CONFIG.clinicName.toUpperCase()}
+          </p>
+          <p class="font-label-sm text-label-sm uppercase tracking-widest text-primary-container font-bold">
+            {SITE_CONFIG.tagline.toUpperCase()} • {SITE_CONFIG.neighborhood.toUpperCase()}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

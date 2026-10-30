@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 800 240" width="800" height="240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoToothGrad" x1="40" y1="20" x2="200" y2="220" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1E60D5"/>
+      <stop offset="50%" stop-color="#0F52BA"/>
+      <stop offset="100%" stop-color="#093C88"/>
+    </linearGradient>
+    <linearGradient id="logoInnerGlow" x1="60" y1="40" x2="140" y2="140" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Contenedor del Icono Dental -->
+  <g transform="translate(30, 20)">
+    <rect width="200" height="200" rx="44" fill="#F0F4FA"/>
+    
+    <!-- Diente estilizado centrado en escala -->
+    <g transform="translate(100, 100) scale(0.38) translate(-256, -260)">
+      <path d="M152 72C108 72 72 108 72 168C72 232 94 284 116 348C132 396 156 448 184 448C212 448 220 388 238 344C246 324 252 312 256 312C260 312 266 324 274 344C292 388 300 448 328 448C356 448 380 396 396 348C418 284 440 232 440 168C440 108 404 72 360 72C316 72 284 94 256 94C228 94 196 72 152 72Z" 
+            fill="url(#logoToothGrad)"/>
+      <path d="M152 96C120 96 96 122 96 168C96 216 114 260 132 316C138 300 150 240 176 188C204 132 236 118 256 118C236 102 200 96 152 96Z" 
+            fill="url(#logoInnerGlow)"/>
+      <path d="M372 112L382 134L404 144L382 154L372 176L362 154L340 144L362 134L372 112Z" 
+            fill="#FFFFFF" opacity="0.95"/>
+    </g>
+  </g>
+
+  <!-- Tipografía de Marca Blanca -->
+  <text x="260" y="112" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="64" font-weight="800" fill="#0F52BA" letter-spacing="-1">
+    DENTAL CARE
+  </text>
+  <text x="265" y="156" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="700" fill="#4B6A9B" letter-spacing="4">
+    CLÍNICA ODONTOLÓGICA
+  </text>
+  
+  <rect x="265" y="172" width="60" height="4" rx="2" fill="#1E60D5"/>
+</svg>

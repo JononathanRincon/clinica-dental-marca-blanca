@@ -1,0 +1,187 @@
+---
+import { Image } from 'astro:assets';
+import { SITE_CONFIG } from '../config/site';
+import logoImg from '../assets/logo.webp';
+import iconImg from '../assets/icon.webp';
+---
+
+<header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest border-b border-surface-variant shadow-[0_2px_6px_rgba(15,82,186,0.04)]">
+  <!-- Cabecera Compacta Móvil (< lg): 64px (h-16) -->
+  <div class="lg:hidden h-16 px-4 flex items-center justify-between">
+    <a href="#inicio" class="flex items-center gap-2.5 no-underline">
+      <div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary-container overflow-hidden shrink-0 p-1">
+        <Image
+          src={iconImg}
+          alt={SITE_CONFIG.clinicName}
+          width={40}
+          height={40}
+          format="webp"
+          quality={85}
+          loading="eager"
+          class="w-8 h-8 object-contain"
+        />
+      </div>
+      <div class="flex flex-col">
+        <span class="font-brand font-bold text-[19px] text-primary-container leading-none">
+          {SITE_CONFIG.shortName}
+        </span>
+        <span class="font-brand-sub font-bold text-[9px] uppercase text-secondary leading-none mt-1">
+          {SITE_CONFIG.subtitle}
+        </span>
+      </div>
+    </a>
+
+    <div class="flex items-center gap-2">
+      <a
+        href="#agendar"
+        class="bg-primary-container text-on-primary font-title-md text-label-md px-3.5 py-2 rounded-lg font-bold shadow-sm whitespace-nowrap no-underline"
+      >
+        Agendar
+      </a>
+      <button
+        id="menu-toggle-btn"
+        type="button"
+        aria-label="Abrir menú de navegación"
+        aria-expanded="false"
+        class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container text-on-surface cursor-pointer"
+      >
+        <span class="material-symbols-outlined" id="menu-toggle-icon">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Menú Desplegable Móvil (< lg) -->
+  <nav
+    id="mobile-menu"
+    class="hidden lg:hidden fixed top-16 left-0 w-full bg-surface-container-lowest border-b border-surface-variant shadow-xl z-40 px-5 py-4 flex-col gap-2"
+    aria-label="Navegación móvil"
+  >
+    <a class="nav-item font-body-md text-body-md py-2.5 text-on-surface flex items-center justify-between border-b border-surface-container" href="#inicio">
+      <span>Inicio</span>
+      <span class="material-symbols-outlined text-primary-container text-[18px]">arrow_forward_ios</span>
+    </a>
+    <a class="nav-item font-body-md text-body-md py-2.5 text-on-surface flex items-center justify-between border-b border-surface-container" href="#servicios">
+      <span>Nuestros Servicios</span>
+      <span class="material-symbols-outlined text-primary-container text-[18px]">arrow_forward_ios</span>
+    </a>
+    <a class="nav-item font-body-md text-body-md py-2.5 text-on-surface flex items-center justify-between border-b border-surface-container" href="#como-trabajamos">
+      <span>Cómo Trabajamos</span>
+      <span class="material-symbols-outlined text-primary-container text-[18px]">arrow_forward_ios</span>
+    </a>
+    <a class="nav-item font-body-md text-body-md py-2.5 text-primary-container font-bold flex items-center justify-between border-b border-surface-container" href="#agendar">
+      <span>Agendar Cita en Línea</span>
+      <span class="material-symbols-outlined text-primary-container text-[18px]">arrow_forward_ios</span>
+    </a>
+    <a class="nav-item font-body-md text-body-md py-2.5 text-on-surface flex items-center justify-between border-b border-surface-container" href="#opiniones">
+      <span>Opiniones de Pacientes</span>
+      <span class="material-symbols-outlined text-primary-container text-[18px]">arrow_forward_ios</span>
+    </a>
+    <a class="nav-item font-body-md text-body-md py-2.5 text-on-surface flex items-center justify-between border-b border-surface-container" href="#faq">
+      <span>Preguntas Frecuentes</span>
+      <span class="material-symbols-outlined text-primary-container text-[18px]">arrow_forward_ios</span>
+    </a>
+    <a class="nav-item font-body-md text-body-md py-2.5 text-on-surface flex items-center justify-between" href="#donde-estamos">
+      <span>Ubicación y Sede ({SITE_CONFIG.address})</span>
+      <span class="material-symbols-outlined text-primary-container text-[18px]">arrow_forward_ios</span>
+    </a>
+  </nav>
+
+  <!-- Cabecera Completa Desktop (>= lg): 80px (h-20) -->
+  <div class="hidden lg:flex h-20 max-w-7xl mx-auto px-margin items-center justify-between gap-space-md">
+    <div class="flex items-center gap-space-sm shrink-0">
+      <a class="flex items-center gap-3 no-underline" href="#inicio">
+        <Image
+          src={logoImg}
+          alt={SITE_CONFIG.clinicName}
+          width={56}
+          height={40}
+          format="webp"
+          quality={85}
+          loading="eager"
+          class="h-11 w-auto object-contain rounded"
+        />
+        <div class="flex flex-col">
+          <span class="font-brand font-bold text-[22px] text-primary-container leading-none">
+            {SITE_CONFIG.shortName}
+          </span>
+          <span class="font-brand-sub font-bold text-[10px] uppercase text-secondary leading-none mt-1">
+            {SITE_CONFIG.subtitle}
+          </span>
+        </div>
+      </a>
+    </div>
+
+    <nav class="flex items-center gap-space-lg whitespace-nowrap" aria-label="Navegación principal">
+      <a
+        aria-current="page"
+        class="transition-colors py-1 text-primary-container font-semibold border-b-2 border-primary-container pb-1"
+        href="#inicio"
+      >
+        Inicio
+      </a>
+      <a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors py-1" href="#servicios">
+        Servicios
+      </a>
+      <a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors py-1" href="#como-trabajamos">
+        Cómo trabajamos
+      </a>
+      <a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors py-1" href="#agendar">
+        Agendar Cita
+      </a>
+      <a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors py-1" href="#opiniones">
+        Opiniones
+      </a>
+      <a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors py-1" href="#donde-estamos">
+        Dónde estamos
+      </a>
+    </nav>
+
+    <div class="flex items-center gap-space-md shrink-0">
+      <a
+        class="flex items-center gap-space-xs font-title-md text-body-lg text-on-surface font-semibold whitespace-nowrap hover:text-primary-container transition-colors"
+        href={SITE_CONFIG.links.phoneCall}
+      >
+        <span class="material-symbols-outlined text-primary-container text-body-lg">call</span>
+        <span>{SITE_CONFIG.phoneDisplay}</span>
+      </a>
+      <a
+        class="bg-primary-container hover:bg-primary text-on-primary font-title-md text-label-md px-[28px] py-[16px] rounded-lg tracking-wider uppercase whitespace-nowrap transition-all shadow-[0_2px_6px_rgba(15,82,186,0.12)] flex items-center justify-center"
+        href="#agendar"
+      >
+        AGENDAR MI CITA
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-toggle-icon');
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.contains('hidden');
+      if (isHidden) {
+        mobileMenu.classList.remove('hidden');
+        mobileMenu.classList.add('flex');
+        menuToggle.setAttribute('aria-expanded', 'true');
+        if (menuIcon) menuIcon.textContent = 'close';
+      } else {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        if (menuIcon) menuIcon.textContent = 'menu';
+      }
+    });
+
+    document.querySelectorAll('.nav-item').forEach((item) => {
+      item.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        if (menuIcon) menuIcon.textContent = 'menu';
+      });
+    });
+  }
+</script>

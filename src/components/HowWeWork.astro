@@ -1,0 +1,78 @@
+---
+import { SITE_CONFIG } from '../config/site';
+---
+
+<section class="w-full bg-[#111315] text-[#F5F3EE] py-10 lg:py-space-xl" id="como-trabajamos">
+  <div class="max-w-[1440px] mx-auto px-4 sm:px-margin-mobile lg:px-margin">
+    <div class="max-w-3xl mb-6 lg:mb-space-xl">
+      <span class="font-label-sm text-label-sm uppercase tracking-widest text-primary-fixed-dim lg:text-primary-container font-bold">
+        PROTOCOLO DE ATENCIÓN
+      </span>
+      <h2 class="font-headline-lg-mobile lg:font-headline-xl text-headline-lg-mobile lg:text-headline-xl uppercase text-[#F5F3EE] mt-space-xs">
+        CÓMO TRABAJAMOS: PROCESO CLÍNICO EN 3 PASOS
+      </h2>
+      <p class="font-body-md lg:font-body-lg text-body-md lg:text-body-lg text-secondary-fixed-dim mt-space-xs">
+        Ruta de atención clara y estructurada desde tu primera llamada hasta la sonrisa soñada, sin incertidumbre ni costos ocultos.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-space-lg">
+      <!-- Step 01 -->
+      <div class="bg-surface-variant/10 p-6 lg:p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between border border-white/10">
+        <div class="font-headline-xl text-headline-xl text-primary-fixed-dim lg:text-primary-container font-bold mb-4 lg:mb-space-md leading-none">
+          01
+        </div>
+        <div>
+          <h3 class="font-headline-sm text-headline-sm uppercase text-[#F5F3EE] mb-space-sm">
+            Contacto y Diagnóstico Inicial
+          </h3>
+          <p class="font-body-md text-body-md text-secondary-fixed-dim leading-relaxed">
+            Evaluamos tu requerimiento por teléfono, WhatsApp o directamente en nuestras instalaciones en {SITE_CONFIG.neighborhood}. Revisión visual y registro digital del estado de tus piezas.
+          </p>
+        </div>
+        <div class="mt-space-lg pt-space-md flex items-center gap-space-xs text-primary-fixed border-t border-white/10">
+          <span class="material-symbols-outlined text-body-md">checklist</span>
+          <span class="font-label-sm text-label-sm uppercase font-semibold">Evaluación sin compromiso</span>
+        </div>
+      </div>
+
+      <!-- Step 02 -->
+      <div class="bg-surface-variant/10 p-6 lg:p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between border border-white/10">
+        <div class="font-headline-xl text-headline-xl text-primary-fixed-dim lg:text-primary-container font-bold mb-4 lg:mb-space-md leading-none">
+          02
+        </div>
+        <div>
+          <h3 class="font-headline-sm text-headline-sm uppercase text-[#F5F3EE] mb-space-sm">
+            Propuesta y Presupuesto Transparente
+          </h3>
+          <p class="font-body-md text-body-md text-secondary-fixed-dim leading-relaxed">
+            Presentamos las opciones de tratamiento con alcance claro, tiempos de ejecución y costos definidos de forma íntegra antes de iniciar cualquier procedimiento.
+          </p>
+        </div>
+        <div class="mt-space-lg pt-space-md flex items-center gap-space-xs text-primary-fixed border-t border-white/10">
+          <span class="material-symbols-outlined text-body-md">visibility</span>
+          <span class="font-label-sm text-label-sm uppercase font-semibold">Cero cobros ocultos</span>
+        </div>
+      </div>
+
+      <!-- Step 03 -->
+      <div class="bg-surface-variant/10 p-6 lg:p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between border border-white/10">
+        <div class="font-headline-xl text-headline-xl text-primary-fixed-dim lg:text-primary-container font-bold mb-4 lg:mb-space-md leading-none">
+          03
+        </div>
+        <div>
+          <h3 class="font-headline-sm text-headline-sm uppercase text-[#F5F3EE] mb-space-sm">
+            Tratamiento Seguro y Respaldo
+          </h3>
+          <p class="font-body-md text-body-md text-secondary-fixed-dim leading-relaxed">
+            Procedimientos realizados bajo estrictos estándares de bioseguridad, materiales certificados de alta gama y seguimiento post-consulta continuo.
+          </p>
+        </div>
+        <div class="mt-space-lg pt-space-md flex items-center gap-space-xs text-primary-fixed border-t border-white/10">
+          <span class="material-symbols-outlined text-body-md">verified</span>
+          <span class="font-label-sm text-label-sm uppercase font-semibold">Garantía clínica total</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

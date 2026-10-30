@@ -1,0 +1,65 @@
+---
+import { SITE_CONFIG } from '../config/site';
+---
+
+<section class="w-full bg-surface-container-lowest shadow-sm z-20 py-6 lg:py-space-lg border-y border-surface-variant/60">
+  <div class="max-w-[1440px] mx-auto px-4 sm:px-margin-mobile lg:px-margin">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-space-lg">
+      <!-- Métrica 1 -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2.5 lg:gap-space-md p-3.5 lg:p-space-sm bg-surface-container-low/60 rounded-xl border border-[#E2DFD7]">
+        <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-primary-container shrink-0">
+          <span class="material-symbols-outlined text-[24px] lg:text-headline-md" style="font-variation-settings: 'FILL' 1;">
+            star
+          </span>
+        </div>
+        <div>
+          <h4 class="font-headline-sm text-headline-sm uppercase text-on-surface leading-none">
+            {SITE_CONFIG.rating} ★ ({SITE_CONFIG.reviewsCount} RESEÑAS)
+          </h4>
+          <p class="font-body-md text-label-sm lg:text-body-md text-on-surface-variant mt-1">
+            Pacientes satisfechos en Google
+          </p>
+        </div>
+      </div>
+
+      <!-- Métrica 2 -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2.5 lg:gap-space-md p-3.5 lg:p-space-sm bg-surface-container-low/60 rounded-xl border border-[#E2DFD7]">
+        <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-primary-container shrink-0">
+          <span class="material-symbols-outlined text-[24px] lg:text-headline-md">verified</span>
+        </div>
+        <div>
+          <h4 class="font-headline-sm text-headline-sm uppercase text-on-surface leading-none">100% CLARIDAD</h4>
+          <p class="font-body-md text-label-sm lg:text-body-md text-on-surface-variant mt-1">
+            Atención y diagnósticos claros
+          </p>
+        </div>
+      </div>
+
+      <!-- Métrica 3 -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2.5 lg:gap-space-md p-3.5 lg:p-space-sm bg-surface-container-low/60 rounded-xl border border-[#E2DFD7]">
+        <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-primary-container shrink-0">
+          <span class="material-symbols-outlined text-[24px] lg:text-headline-md">receipt_long</span>
+        </div>
+        <div>
+          <h4 class="font-headline-sm text-headline-sm uppercase text-on-surface leading-none">SIN SORPRESAS</h4>
+          <p class="font-body-md text-label-sm lg:text-body-md text-on-surface-variant mt-1">
+            Presupuesto previo sin compromiso
+          </p>
+        </div>
+      </div>
+
+      <!-- Métrica 4 -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2.5 lg:gap-space-md p-3.5 lg:p-space-sm bg-surface-container-low/60 rounded-xl border border-[#E2DFD7]">
+        <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-primary-container shrink-0">
+          <span class="material-symbols-outlined text-[24px] lg:text-headline-md">support_agent</span>
+        </div>
+        <div>
+          <h4 class="font-headline-sm text-headline-sm uppercase text-on-surface leading-none">ATENCIÓN DIRECTA</h4>
+          <p class="font-body-md text-label-sm lg:text-body-md text-on-surface-variant mt-1">
+            Calidad, garantía y respuesta &lt; 15 min
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

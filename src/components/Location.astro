@@ -1,0 +1,136 @@
+---
+import { Image } from 'astro:assets';
+import { SITE_CONFIG } from '../config/site';
+import mapDesktop from '../assets/map-location-desktop.webp';
+import mapMobile from '../assets/map-location-mobile.webp';
+---
+
+<section class="w-full bg-surface-container-lowest py-10 lg:py-space-xl border-t border-surface-variant/60" id="donde-estamos">
+  <div id="ubicacion" class="max-w-[1440px] mx-auto px-4 sm:px-margin-mobile lg:px-margin">
+    <div class="text-left lg:text-center max-w-2xl lg:mx-auto mb-6 lg:mb-space-xl">
+      <span class="font-label-sm text-label-sm uppercase tracking-widest text-primary-container font-bold">
+        SEDE CLÍNICA CENTRAL
+      </span>
+      <h2 class="font-headline-lg-mobile lg:font-headline-xl text-headline-lg-mobile lg:text-headline-xl uppercase text-on-surface mt-space-xs">
+        DÓNDE ESTAMOS UBICADOS
+      </h2>
+      <p class="font-body-md lg:font-body-lg text-body-md lg:text-body-lg text-on-surface-variant mt-space-xs">
+        Fácil acceso en {SITE_CONFIG.address}, {SITE_CONFIG.neighborhood}.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-space-xl items-center">
+      <!-- Left: Interactive Google Maps visual container with lazy WebP image -->
+      <a
+        href={SITE_CONFIG.links.googleMaps}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="lg:col-span-7 rounded-2xl overflow-hidden shadow-md relative h-64 sm:h-80 lg:min-h-[420px] bg-surface-container-high block group border border-[#E2DFD7]"
+        aria-label="Abrir ubicación en Google Maps"
+      >
+        <Image
+          src={mapDesktop}
+          alt={`Mapa de ubicación ${SITE_CONFIG.clinicName} en ${SITE_CONFIG.fullAddress}`}
+          width={900}
+          height={600}
+          format="webp"
+          quality={80}
+          loading="lazy"
+          decoding="async"
+          class="hidden sm:block w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+        />
+        <Image
+          src={mapMobile}
+          alt={`Ubicación ${SITE_CONFIG.clinicName} en ${SITE_CONFIG.fullAddress}`}
+          width={700}
+          height={450}
+          format="webp"
+          quality={80}
+          loading="lazy"
+          decoding="async"
+          class="block sm:hidden w-full h-full object-cover object-center"
+        />
+
+        <!-- Floating Map Overlay Landmark Tag -->
+        <div class="absolute top-4 left-4 lg:top-6 lg:left-6 bg-surface-container-lowest/95 backdrop-blur-sm p-2.5 lg:p-space-sm rounded-lg shadow-md flex items-center gap-space-xs border border-[#E2DFD7]">
+          <span class="material-symbols-outlined text-primary-container">pin_drop</span>
+          <span class="font-label-md text-label-md text-on-surface font-semibold uppercase">
+            {SITE_CONFIG.shortName} • {SITE_CONFIG.address}, {SITE_CONFIG.neighborhood}
+          </span>
+        </div>
+
+        <div class="absolute bottom-4 left-4 lg:bottom-6 lg:left-6 bg-surface-container-lowest/95 backdrop-blur-sm px-3.5 py-1.5 rounded-lg shadow-sm border border-[#E2DFD7]">
+          <span class="font-label-sm text-label-sm text-secondary uppercase font-bold">
+            Vista de Calle y Referencias Centrales • Clic para abrir Mapa
+          </span>
+        </div>
+      </a>
+
+      <!-- Right: Local clinic details card -->
+      <div class="lg:col-span-5 bg-surface-container-low p-6 lg:p-8 rounded-2xl flex flex-col justify-between h-full border border-[#E2DFD7]">
+        <div>
+          <span class="font-label-sm text-label-sm uppercase tracking-wider text-primary-container font-bold">
+            INFORMACIÓN DE LLEGADA
+          </span>
+          <h3 class="font-headline-lg-mobile lg:font-headline-lg text-headline-lg-mobile lg:text-headline-lg uppercase text-on-surface mt-space-xs mb-space-md">
+            {SITE_CONFIG.clinicName.toUpperCase()}
+          </h3>
+
+          <div class="space-y-space-md mb-space-lg">
+            <div class="flex items-start gap-space-sm">
+              <span class="material-symbols-outlined text-primary-container mt-1">navigation</span>
+              <div>
+                <p class="font-title-md text-body-lg text-on-surface font-semibold">Dirección y Barrio</p>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  {SITE_CONFIG.address}, {SITE_CONFIG.neighborhood}
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-space-sm">
+              <span class="material-symbols-outlined text-primary-container mt-1">access_time</span>
+              <div>
+                <p class="font-title-md text-body-lg text-on-surface font-semibold">Horarios Semanales</p>
+                <p class="font-body-md text-body-md text-on-surface-variant">{SITE_CONFIG.schedule.weekdaysLabel}</p>
+                <p class="font-body-md text-body-md text-on-surface-variant">{SITE_CONFIG.schedule.saturdayLabel}</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-space-sm">
+              <span class="material-symbols-outlined text-primary-container mt-1">contact_phone</span>
+              <div>
+                <p class="font-title-md text-body-lg text-on-surface font-semibold">Líneas de Atención</p>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  Llamadas & WhatsApp:{' '}
+                  <a href={SITE_CONFIG.links.phoneCall} class="text-primary-container font-semibold hover:underline">
+                    {SITE_CONFIG.phoneDisplay}
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-space-md border-t border-surface-variant/60 flex flex-col sm:flex-row gap-space-sm">
+          <a
+            class="bg-primary-container hover:bg-primary text-on-primary font-title-md text-label-md px-6 py-3.5 rounded-lg tracking-wider uppercase transition-all shadow-sm flex items-center justify-center gap-space-xs font-bold"
+            href={SITE_CONFIG.links.googleMaps}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="material-symbols-outlined text-title-md">directions</span>
+            <span>CÓMO LLEGAR (GPS)</span>
+          </a>
+          <a
+            class="bg-surface-container-lowest hover:bg-surface-container text-on-surface font-title-md text-label-md px-6 py-3.5 rounded-lg tracking-wider uppercase transition-all shadow-sm border border-[#E2DFD7] flex items-center justify-center gap-space-xs font-semibold"
+            href={SITE_CONFIG.links.whatsappDirect}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>ESCRIBIR AL WHATSAPP</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

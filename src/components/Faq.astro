@@ -1,0 +1,92 @@
+---
+import { SITE_CONFIG } from '../config/site';
+
+const faqs = [
+  {
+    question: '1. ¿Cómo puedo agendar mi primera cita de valoración?',
+    answer: `Puedes agendarla directamente a través de nuestro módulo en línea en esta web, seleccionando el día y la hora disponible, o escribiéndonos a nuestro WhatsApp directo al ${SITE_CONFIG.phoneDisplay}. Recibirás tu comprobante en PDF y confirmación inmediata.`,
+  },
+  {
+    question: '2. ¿Entregan presupuesto antes de iniciar cualquier tratamiento dental?',
+    answer:
+      'Totalmente sí. Nuestro compromiso es 100% claridad: tras la valoración clínica inicial te entregamos un plan de tratamiento por escrito con tiempos y costos cerrados. No realizamos intervenciones sin tu previa aprobación y comprensión de las tarifas.',
+  },
+  {
+    question: '3. ¿Dónde están ubicados exactamente y cuál es el horario de los sábados?',
+    answer: `Estamos ubicados en la ${SITE_CONFIG.address}, ${SITE_CONFIG.neighborhood}. Los días sábados atendemos en jornada continua de 8:00 AM a 12:00 PM (mediodía) con agenda previa.`,
+  },
+  {
+    question: '4. ¿Atienden urgencias odontológicas o citas el mismo día?',
+    answer: `Sí, disponemos de espacios prioritarios en agenda reservados para alivio del dolor agudo, traumatismos dentales, pérdidas de restauraciones o inflamaciones. Comunícate de inmediato al ${SITE_CONFIG.phoneDisplay} para coordinar tu atención prioritaria.`,
+  },
+];
+---
+
+<section class="w-full bg-surface-container-low py-10 lg:py-space-xl" id="faq">
+  <div class="max-w-[960px] mx-auto px-4 sm:px-margin-mobile lg:px-margin">
+    <div class="text-left lg:text-center mb-6 lg:mb-space-xl">
+      <span class="font-label-sm text-label-sm uppercase tracking-widest text-primary-container font-bold">
+        RESOLVEMOS TUS DUDAS
+      </span>
+      <h2 class="font-headline-lg-mobile lg:font-headline-xl text-headline-lg-mobile lg:text-headline-xl uppercase text-on-surface mt-space-xs">
+        PREGUNTAS FRECUENTES
+      </h2>
+      <p class="font-body-md lg:font-body-lg text-body-md lg:text-body-lg text-on-surface-variant mt-space-xs">
+        Todo lo que necesitas saber antes de tu primera consulta odontológica.
+      </p>
+    </div>
+
+    <div class="space-y-3 lg:space-y-space-md" id="faqAccordion">
+      {
+        faqs.map((faq, index) => (
+          <div class="faq-card bg-surface-container-lowest rounded-xl shadow-sm border border-[#E2DFD7] overflow-hidden">
+            <button
+              type="button"
+              aria-expanded={index === 0 ? 'true' : 'false'}
+              class="faq-toggle w-full p-5 lg:p-6 text-left flex items-center justify-between gap-space-md cursor-pointer"
+            >
+              <h3 class="font-headline-sm text-headline-sm uppercase text-on-surface">{faq.question}</h3>
+              <span
+                class={`faq-icon material-symbols-outlined text-primary-container transition-transform duration-300 shrink-0 ${
+                  index === 0 ? 'rotate-180' : ''
+                }`}
+              >
+                expand_more
+              </span>
+            </button>
+            <div
+              class={`faq-content px-5 pb-5 lg:px-6 lg:pb-6 font-body-md text-body-md text-on-surface-variant leading-relaxed border-t border-surface-container ${
+                index === 0 ? 'block pt-3' : 'hidden pt-3'
+              }`}
+            >
+              {faq.answer}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.faq-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.faq-card');
+      const content = card?.querySelector('.faq-content');
+      const icon = card?.querySelector('.faq-icon');
+      if (!content) return;
+
+      const isHidden = content.classList.contains('hidden');
+
+      if (isHidden) {
+        content.classList.remove('hidden');
+        btn.setAttribute('aria-expanded', 'true');
+        icon?.classList.add('rotate-180');
+      } else {
+        content.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+        icon?.classList.remove('rotate-180');
+      }
+    });
+  });
+</script>
